@@ -1,0 +1,50 @@
+delete from Uloga 
+delete from Lokacija
+delete from Menadzment
+delete from ZdravstvenaLegitimacija
+delete from Karton
+delete from Lijek
+delete from Proizvodjac
+delete from Nalaz
+delete from Uputnica
+delete from Termin
+delete from Pacijent
+delete from Recept
+delete from Ambulanta 
+delete from Farmaceut 
+delete from Apoteka 
+delete from Asistent 
+delete from Ljekar 
+delete from Tehnicar 
+delete from Osoblje 
+delete from Odjeljenje 
+delete from Bolnica 
+delete from Ambulanta 
+
+
+///
+            migrationBuilder.DropUniqueConstraint("PK_Korisnik", "Korisnik");
+
+            // Add new columns for string Id
+            migrationBuilder.AddColumn<string>(
+                name: "IdTemp",
+                table: "Korisnik",
+                type: "nvarchar(450)",
+                nullable: false);
+
+            // Update new columns with values from the old columns
+            migrationBuilder.Sql("UPDATE Korisnik SET IdTemp = CONVERT(NVARCHAR(450), Id)");
+
+            // Drop the old columns
+            migrationBuilder.DropColumn(
+                name: "Id",
+                table: "Korisnik");
+
+            // Rename the new columns to the original column names
+            migrationBuilder.RenameColumn(
+                name: "IdTemp",
+                table: "Korisnik",
+                newName: "Id");
+
+            // Add primary key constraints on the new columns
+            migrationBuilder.Sql("ALTER TABLE Korisnik ADD CONSTRAINT PK_Korisnik PRIMARY KEY (Id)");
