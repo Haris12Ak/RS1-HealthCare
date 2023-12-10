@@ -1,0 +1,25 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>{{'vrsta' | translate}}</th>
+            <th>{{'prioritet' | translate}}</th>
+            <th>{{'ljekar' | translate}}</th>
+            <th>{{'specijalizacija' | translate}}</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let x of podaci">
+            <th>{{x.nalazId}}</th>
+            <td>{{x.vrsta}}</td>
+            <td>{{x.prioritet}}</td>
+            <td>{{x.izdaoLjekar}}</td>
+            <td>{{x.specijalizacija_ljekara}}</td>
+            <td>
+                <button class="btn btn-primary">button_1</button> |
+                <button class="btn btn-primary">button_2</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
