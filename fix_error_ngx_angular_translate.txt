@@ -1,0 +1,7 @@
+After install angular package, needed is change code in file "translate.directive.d.ts"
+
+Following this path: 
+C:\RS1-HealthCare\angular\node_modules\@ngx-translate\core\dist\lib\translate.directive.d.ts
+
+In line 25 change code to this code:
+static ɵdir: i0.ɵɵDirectiveDeclaration<TranslateDirective, "[translate],[ngx-translate]", never, { 'translate': 'translate'; 'translateParams': 'translateParams'; }, {}, never, never, false, never>;
